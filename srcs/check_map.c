@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 16:37:01 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:11:52 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,16 @@ void	check_walls(t_memory_map m)
 		{
 			ft_putendl_fd("Map not surronded by walls...", 2);
 			return ;
+		}
+		i = 1;
+		while (i != (m.nb_lines - 1))
+		{
+			if (m.map[i][0] != '1' || m.map[i][m.line_len - 2] != '1')
+			{
+				ft_putendl_fd("Map not surronded by walls...", 2);
+				return ;
+			}
+			i++;
 		}
 		j++;
 	}
