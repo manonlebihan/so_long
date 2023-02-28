@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 11:02:25 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:30:18 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include "libft.h"
 # include "mlx.h"
 
-/************** STRUCTS ****************/
+/******************* STRUCTS *******************/
 
 typedef struct	s_img
 {
@@ -56,5 +56,11 @@ typedef struct	s_memory_map
 	int		nb_lines;
 	int		line_len;
 }	t_memory_map;
+
+/******************* MEMORY MAP FUNCTIONS *******************/
+
+void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
+void	load_memory_map(t_memory_map *map, int fd);
+void	free_memory_map(t_memory_map map);
 
 # endif
