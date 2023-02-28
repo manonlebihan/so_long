@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 17:11:52 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:43:28 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_extension(char *filename)
 	}
 }
 
-void	check_rectangle(t_memory_map m)
+int	check_rectangle(t_memory_map m)
 {
 	int	len;
 	int	nb_lines;
@@ -50,18 +50,19 @@ void	check_rectangle(t_memory_map m)
 		else
 			len = ft_strlen(m.map[nb_lines - 1]);
 		if (m.line_len != len)
-			ft_putendl_fd("Not a rectangle...", 2);
+			return (0);
 		nb_lines--;
 	}
+	return (1);
 }
 
-void	check_chars(t_memory_map m)
+int	check_chars(t_memory_map m)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while (m.map[j] != NULL)
+	while (j != m.nb_lines)
 	{
 		i = 0;
 		while (m.map[j][i] != '\0')
@@ -70,43 +71,38 @@ void	check_chars(t_memory_map m)
 					m.map[j][i] != 'E' && m.map[j][i] != 'C'
 					&& m.map[j][i] != 'P' && m.map[j][i] != '\n')
 			{
-				ft_putendl_fd("Map not well formated !", 2);
-				return ;
+				return (0);
 			}
 			i++;
 		}
 		j++;
 	}
+	return (1);
 }
 
-void	check_walls(t_memory_map m)
+int	check_walls(t_memory_map m)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while (m.map[j] != NULL)
+	while (j != m.nb_lines)
 	{
 		i = 0;
 		while (m.map[0][i] == '1' && m.map[m.nb_lines - 1][i] == '1')
 			i++;
 		if (i != (m.line_len - 1))
-		{
-			ft_putendl_fd("Map not surronded by walls...", 2);
-			return ;
-		}
+			return (0);
 		i = 1;
 		while (i != (m.nb_lines - 1))
 		{
 			if (m.map[i][0] != '1' || m.map[i][m.line_len - 2] != '1')
-			{
-				ft_putendl_fd("Map not surronded by walls...", 2);
-				return ;
-			}
+				return (0);
 			i++;
 		}
 		j++;
 	}
+	return (1);
 }
 
 void	check_map(int argc,	char *filename)
@@ -123,8 +119,11 @@ void	check_map(int argc,	char *filename)
 	fd = open(filename, O_RDONLY);
 	load_memory_map(&map, fd);
 	close(fd);
-	check_rectangle(map);
-	check_chars(map);
-	check_walls(map);
+	if (check_rectangle(map) == (0))
+		ft_putendl_fd("Map is not a rectangle.", 2);
+	if (check_chars(map) == 0)
+		ft_putendl_fd("Map is not well formated.", 2);
+	if (check_walls(map) == 0)
+		ft_putendl_fd("Map is not surronded by walls.", 2);
 	free_memory_map(map);
 }
