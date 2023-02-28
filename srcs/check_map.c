@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 14:19:23 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:16:40 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_extension(char *filename)
 void	check_rectangle(t_memory_map m)
 {
 	int	len;
-	int nb_lines;
+	int	nb_lines;
 
 	nb_lines = m.nb_lines;
 	while (nb_lines != 1)
@@ -54,6 +54,55 @@ void	check_rectangle(t_memory_map m)
 		nb_lines--;
 	}
 }
+
+/* void	check_if_map_is_closed(t_memory_map m)
+{
+	
+} */
+
+void	check_chars(t_memory_map m)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (m.map[j] != NULL)
+	{
+		printf("m.map[j] : %s\n", m.map[j]);
+		while (m.map[j][i] != '\0')
+		{
+			printf("map[j][i] : %c\n", m.map[j][i]);
+			if (m.map[j][i] != '1' && m.map[j][i] != '\n')
+				ft_putendl_fd("Map not well formated !", 2);
+			else
+				ft_putendl_fd("ALL GOOD", 1);
+			i++;
+		}
+		j++;
+	}
+}
+
+
+
+/* if (m.map[j][i] != '1' && m.map[j][i] != '0' && 
+					m.map[j][i] != 'E' && m.map[j][i] != 'C' 
+					&& m.map[j][i] != 'P' && m.map[j][i] != '\n') */
+
+/* int	check_char(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		printf("str[i] : %c", str[i]);
+		if (str[i] != 'a')
+			return (1);
+		i++;
+	}
+	return (0);
+} */
 
 void	check_map(int argc,	char *filename)
 {
@@ -70,6 +119,9 @@ void	check_map(int argc,	char *filename)
 	load_memory_map(&map, fd);
 	close(fd);
 	check_rectangle(map);
+	check_chars(map);
+	free_memory_map(map);
+}
 
 	/* int				i;
 	i = 0;
@@ -80,5 +132,3 @@ void	check_map(int argc,	char *filename)
 		printf("%s", map.map[i]);
 		i++;
 	} */
-	free_memory_map(map);
-}
