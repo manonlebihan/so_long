@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 11:30:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:51:58 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ typedef struct	s_memory_map
 /******************* MEMORY MAP FUNCTIONS *******************/
 
 void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
-void	load_memory_map(t_memory_map *map, int fd);
-void	free_memory_map(t_memory_map map);
+void	load_memory_map(t_memory_map *m, int fd);
+void	free_memory_map(t_memory_map m);
+
+
+/******************* CHECK MAP FUNCTIONS *******************/
+void	check_map(int argc, char *filename);
 
 # endif
