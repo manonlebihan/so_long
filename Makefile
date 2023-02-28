@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/02/27 16:10:02 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/02/28 11:24:14 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,12 +34,7 @@ OBJ_DIR				= objs
 INC_DIR				= includes
 
 # Sources and objects
-SRC					= $(SRC_DIR)/direction.c \
-						$(SRC_DIR)/display.c \
-						$(SRC_DIR)/error.c \
-						$(SRC_DIR)/main.c \
-						$(SRC_DIR)/parsing.c \
-						$(SRC_DIR)/textures.c
+SRC					= $(SRC_DIR)/main.c 
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # old OBJ = $(SRC:.c=.o)
 

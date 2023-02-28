@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/27 16:07:01 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:02:25 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,35 @@
 # include "get_next_line.h"
 # include "libft.h"
 # include "mlx.h"
+
+/************** STRUCTS ****************/
+
+typedef struct	s_img
+{
+	void	*mlx_img;
+	int		width;
+	int		height;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
+
+typedef struct	s_solong
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		x;
+	int		y;
+	t_img	img;
+	//int		cur_img;
+}	t_solong;
+
+typedef struct	s_memory_map
+{
+	char	**map;
+	int		nb_lines;
+	int		line_len;
+}	t_memory_map;
 
 # endif
