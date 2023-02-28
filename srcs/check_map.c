@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 15:16:40 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:37:01 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,54 +55,49 @@ void	check_rectangle(t_memory_map m)
 	}
 }
 
-/* void	check_if_map_is_closed(t_memory_map m)
-{
-	
-} */
-
 void	check_chars(t_memory_map m)
 {
 	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
 	while (m.map[j] != NULL)
 	{
-		printf("m.map[j] : %s\n", m.map[j]);
+		i = 0;
 		while (m.map[j][i] != '\0')
 		{
-			printf("map[j][i] : %c\n", m.map[j][i]);
-			if (m.map[j][i] != '1' && m.map[j][i] != '\n')
+			if (m.map[j][i] != '1' && m.map[j][i] != '0' &&
+					m.map[j][i] != 'E' && m.map[j][i] != 'C'
+					&& m.map[j][i] != 'P' && m.map[j][i] != '\n')
+			{
 				ft_putendl_fd("Map not well formated !", 2);
-			else
-				ft_putendl_fd("ALL GOOD", 1);
+				return ;
+			}
 			i++;
 		}
 		j++;
 	}
 }
 
-
-
-/* if (m.map[j][i] != '1' && m.map[j][i] != '0' && 
-					m.map[j][i] != 'E' && m.map[j][i] != 'C' 
-					&& m.map[j][i] != 'P' && m.map[j][i] != '\n') */
-
-/* int	check_char(char *str)
+void	check_walls(t_memory_map m)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (str[i] != '\0')
+	j = 0;
+	while (m.map[j] != NULL)
 	{
-		printf("str[i] : %c", str[i]);
-		if (str[i] != 'a')
-			return (1);
-		i++;
+		i = 0;
+		while (m.map[0][i] == '1' && m.map[m.nb_lines - 1][i] == '1')
+			i++;
+		if (i != (m.line_len - 1))
+		{
+			ft_putendl_fd("Map not surronded by walls...", 2);
+			return ;
+		}
+		j++;
 	}
-	return (0);
-} */
+}
 
 void	check_map(int argc,	char *filename)
 {
@@ -120,15 +115,6 @@ void	check_map(int argc,	char *filename)
 	close(fd);
 	check_rectangle(map);
 	check_chars(map);
+	check_walls(map);
 	free_memory_map(map);
 }
-
-	/* int				i;
-	i = 0;
-	printf("nb line   = %d\n", map.nb_lines);
-	printf("line size = %d\n", map.line_len);
-	while (i < map.nb_lines)
-	{
-		printf("%s", map.map[i]);
-		i++;
-	} */
