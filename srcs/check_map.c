@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 18:43:28 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:33:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,35 @@ int	check_chars(t_memory_map m)
 	return (1);
 }
 
+int	check_items(t_memory_map m)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	m.sl.exit = 0;
+	m.sl.player = 0;
+	m.sl.collectible = 0;
+	while (j != m.nb_lines)
+	{
+		i = 0;
+		while (m.map[j][i] != '\0')
+		{
+			if (m.map[j][i] == 'E')
+				m.sl.exit++;
+			else if (m.map[j][i] == 'P')
+				m.sl.player++;
+			else if (m.map[j][i] == 'C')
+				m.sl.collectible++;
+			i++;
+		}
+		j++;
+	}
+	if (m.sl.exit != 1 || m.sl.player != 1 || m.sl.collectible != 1)
+		return (0);
+	return (1);
+}
+
 int	check_walls(t_memory_map m)
 {
 	int	i;
@@ -103,27 +132,4 @@ int	check_walls(t_memory_map m)
 		j++;
 	}
 	return (1);
-}
-
-void	check_map(int argc,	char *filename)
-{
-	t_memory_map	map;
-	int				fd;
-
-	if (argc != 2)
-	{
-		ft_putendl_fd("Not enough arguments, usage: ./so_long [file.ber]", 2);
-		exit(EXIT_FAILURE);
-	}
-	check_extension(filename);
-	fd = open(filename, O_RDONLY);
-	load_memory_map(&map, fd);
-	close(fd);
-	if (check_rectangle(map) == (0))
-		ft_putendl_fd("Map is not a rectangle.", 2);
-	if (check_chars(map) == 0)
-		ft_putendl_fd("Map is not well formated.", 2);
-	if (check_walls(map) == 0)
-		ft_putendl_fd("Map is not surronded by walls.", 2);
-	free_memory_map(map);
 }

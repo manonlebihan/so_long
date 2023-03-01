@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 11:51:58 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:32:31 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 /******************* STRUCTS *******************/
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*mlx_img;
 	int		width;
@@ -40,7 +40,7 @@ typedef struct	s_img
 	int		endian;
 }	t_img;
 
-typedef struct	s_solong
+/* typedef struct s_solong
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -48,13 +48,25 @@ typedef struct	s_solong
 	int		y;
 	t_img	img;
 	//int		cur_img;
+}	t_solong; */
+
+typedef struct s_solong
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		x;
+	int		y;
+	int		exit;
+	int		player;
+	int		collectible;
 }	t_solong;
 
-typedef struct	s_memory_map
+typedef struct s_memory_map
 {
-	char	**map;
-	int		nb_lines;
-	int		line_len;
+	char		**map;
+	int			nb_lines;
+	int			line_len;
+	t_solong	sl;
 }	t_memory_map;
 
 /******************* MEMORY MAP FUNCTIONS *******************/
@@ -65,6 +77,11 @@ void	free_memory_map(t_memory_map m);
 
 
 /******************* CHECK MAP FUNCTIONS *******************/
-void	check_map(int argc, char *filename);
+// void	check_map(int argc, char *filename);
+void	check_extension(char *filename);
+int		check_rectangle(t_memory_map m);
+int		check_chars(t_memory_map m);
+int		check_items(t_memory_map m);
+int		check_walls(t_memory_map m);
 
 # endif
