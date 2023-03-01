@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 11:28:08 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:39:59 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_map
 
 typedef struct s_solong
 {
-	t_mlx	*mlx;
+	t_mlx	mlx;
 	t_img	img;
 	t_map	map;
 }	t_solong;
@@ -99,6 +99,6 @@ int		check_items(t_map m);
 int		check_walls(t_map m);
 
 /******************* DISPLAY FUNCTIONS *******************/
-int		display_window(t_mlx mlx);
+int		display_window(t_solong sl);
 
 #endif
