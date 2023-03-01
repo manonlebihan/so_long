@@ -6,15 +6,14 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 11:04:35 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:31:31 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_map(int argc,	char *filename)
+void	check_map(int argc,	char *filename, t_map map)
 {
-	t_map	map;
 	int		fd;
 
 	if (argc != 2)
@@ -39,5 +38,8 @@ void	check_map(int argc,	char *filename)
 
 int	main(int argc, char *argv[])
 {
-	check_map(argc, argv[1]);
+	t_solong	sl;
+
+	check_map(argc, argv[1], sl.map);
+	//display_window(mlx);
 }

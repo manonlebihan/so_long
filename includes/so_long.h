@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 11:02:51 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:28:08 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,20 @@ typedef struct s_map
 	int			collectible;
 }	t_map;
 
+/* typedef struct s_solong
+{
+	int		x;
+	int		y;
+	t_img	img;
+}	t_solong; */
+
+typedef struct s_solong
+{
+	t_mlx	*mlx;
+	t_img	img;
+	t_map	map;
+}	t_solong;
+
 /******************* MEMORY MAP FUNCTIONS *******************/
 
 void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
@@ -83,5 +97,8 @@ int		check_rectangle(t_map m);
 int		check_chars(t_map m);
 int		check_items(t_map m);
 int		check_walls(t_map m);
+
+/******************* DISPLAY FUNCTIONS *******************/
+int		display_window(t_mlx mlx);
 
 #endif
