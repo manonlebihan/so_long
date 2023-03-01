@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 11:39:59 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:09:08 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,20 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_txt
+{
+	t_img	floor;
+	t_img	wall;
+	t_img	player;
+	t_img	collect;
+	t_img	exit;
+}	t_txt;
+
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_txt	txt;
 	int		x;
 	int		y;
 }	t_mlx;
@@ -68,13 +78,6 @@ typedef struct s_map
 	int			player;
 	int			collectible;
 }	t_map;
-
-/* typedef struct s_solong
-{
-	int		x;
-	int		y;
-	t_img	img;
-}	t_solong; */
 
 typedef struct s_solong
 {
