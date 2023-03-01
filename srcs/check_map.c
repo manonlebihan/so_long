@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 10:33:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:01:18 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_extension(char *filename)
 	}
 }
 
-int	check_rectangle(t_memory_map m)
+int	check_rectangle(t_map m)
 {
 	int	len;
 	int	nb_lines;
@@ -56,7 +56,7 @@ int	check_rectangle(t_memory_map m)
 	return (1);
 }
 
-int	check_chars(t_memory_map m)
+int	check_chars(t_map m)
 {
 	int	i;
 	int	j;
@@ -80,36 +80,36 @@ int	check_chars(t_memory_map m)
 	return (1);
 }
 
-int	check_items(t_memory_map m)
+int	check_items(t_map m)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	m.sl.exit = 0;
-	m.sl.player = 0;
-	m.sl.collectible = 0;
+	m.exit = 0;
+	m.player = 0;
+	m.collectible = 0;
 	while (j != m.nb_lines)
 	{
 		i = 0;
 		while (m.map[j][i] != '\0')
 		{
 			if (m.map[j][i] == 'E')
-				m.sl.exit++;
+				m.exit++;
 			else if (m.map[j][i] == 'P')
-				m.sl.player++;
+				m.player++;
 			else if (m.map[j][i] == 'C')
-				m.sl.collectible++;
+				m.collectible++;
 			i++;
 		}
 		j++;
 	}
-	if (m.sl.exit != 1 || m.sl.player != 1 || m.sl.collectible != 1)
+	if (m.exit != 1 || m.player != 1 || m.collectible != 1)
 		return (0);
 	return (1);
 }
 
-int	check_walls(t_memory_map m)
+int	check_walls(t_map m)
 {
 	int	i;
 	int	j;

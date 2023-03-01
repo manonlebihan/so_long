@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_map.c                                       :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/02/28 13:17:23 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:02:51 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	}
 }
 
-void	load_memory_map(t_memory_map *m, int fd)
+void	load_map(t_map *m, int fd)
 {
 	char	*line;
 
@@ -58,7 +58,7 @@ void	load_memory_map(t_memory_map *m, int fd)
 	}
 }
 
-void	free_memory_map(t_memory_map m)
+void	free_map(t_map m)
 {
 	int	i;
 
