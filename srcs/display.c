@@ -6,86 +6,63 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:35:32 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 16:43:07 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:42:50 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#define WHITE_PIXEL 0xFFFFFF
 
-void	img_pix_put(t_img *img, int x, int y, int color)
+void	init_textures(t_mlx *mlx, t_img *txt, char *path)
 {
-	char	*pixel;
-	int		i;
-
-	i = img->bpp - 8;
-	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	while (i >= 0)
-	{
-		if (img->endian != 0)
-			*pixel++ = (color >> i) & 0xFF;
-		else
-			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
-		i -= 8;
-	}
+	txt->mlx_img = mlx_xpm_file_to_image(mlx->mlx_ptr, path, &txt->height,
+			&txt->width);
 }
 
-void	render_background(t_img *img, int color)
+void	get_textures(t_mlx *mlx)
+{
+	init_textures(mlx, &mlx->txt.floor, "textures/teapot.xpm");
+}
+
+void	write_textures(char c, t_mlx mlx, int i, int j)
+{
+	(void) c;
+	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.floor.mlx_img,
+		(mlx.txt.floor.width * j), (mlx.txt.floor.height * i));
+}
+
+void	put_textures(t_mlx mlx, t_map map)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < 1080)
+	while (i < map.nb_lines)
 	{
 		j = 0;
-		while (j < 1920)
+		while (j < map.line_len)
 		{
-			img_pix_put(img, j++, i, color);
+			write_textures(map.map[i][j], mlx, i, j);
+			j++;
 		}
-		++i;
+		i++;
 	}
 }
 
-int	render(t_solong *sl)
+void	display_window(t_map map)
 {
-	if (sl->mlx.win_ptr == NULL)
-		return (1);
-	render_background(&sl->img, WHITE_PIXEL);
-	mlx_put_image_to_window(sl->mlx.mlx_ptr, sl->mlx.win_ptr,
-		sl->img.mlx_img, 0, 0);
-	return (0);
-}
+	//t_solong	sl;
+	t_mlx		mlx;
 
-int	handle_keypress(int keysym, t_solong *sl)
-{
-	if (keysym == XK_Escape)
+	mlx.mlx_ptr = mlx_init();
+	if (mlx.mlx_ptr == NULL)
 	{
-		mlx_destroy_window(sl->mlx.mlx_ptr, sl->mlx.win_ptr);
-		sl->mlx.win_ptr = NULL;
+		free_map(map);
+		exit(EXIT_FAILURE);
 	}
-	return (0);
-}
-
-int	display_window(t_solong sl)
-{
-	sl.mlx.mlx_ptr = mlx_init();
-	if (sl.mlx.mlx_ptr == NULL)
-		return (1);
-	sl.mlx.win_ptr = mlx_new_window(sl.mlx.mlx_ptr, 1920, 1080, "so_long");
-	if (sl.mlx.mlx_ptr == NULL)
-	{
-		free(sl.mlx.mlx_ptr);
-		return (1);
-	}
-	sl.img.mlx_img = mlx_new_image(sl.mlx.mlx_ptr, 1920, 1080);
-	sl.img.addr = mlx_get_data_addr(sl.img.mlx_img, &sl.img.bpp,
-			&sl.img.line_len, &sl.img.endian);
-	mlx_loop_hook(sl.mlx.mlx_ptr, &render, &sl);
-	mlx_hook(sl.mlx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &sl);
-	mlx_loop(sl.mlx.mlx_ptr);
-	mlx_destroy_image(sl.mlx.mlx_ptr, sl.img.mlx_img);
-	mlx_destroy_display(sl.mlx.mlx_ptr);
-	free(sl.mlx.mlx_ptr);
-	return (0);
+	get_textures(&mlx);
+	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr,
+			(mlx.txt.floor.width * map.line_len),
+			(mlx.txt.floor.height * map.nb_lines), "so_long");
+	put_textures(mlx, map);
+	mlx_loop(mlx.mlx_ptr);
 }

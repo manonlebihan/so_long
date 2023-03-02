@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 11:14:19 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:42:57 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ int		check_items(t_map m);
 int		check_walls(t_map m);
 
 /******************* DISPLAY FUNCTIONS *******************/
-int		display_window(t_solong sl);
+void	display_window(t_map map);
 
 #endif
