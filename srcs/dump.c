@@ -6,13 +6,14 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:47:44 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 11:47:48 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:55:36 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #define WHITE_PIXEL 0xFFFFFF
 
+// DISPLAY
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
@@ -88,4 +89,15 @@ int	display_window(t_solong sl)
 	mlx_destroy_display(sl.mlx.mlx_ptr);
 	free(sl.mlx.mlx_ptr);
 	return (0);
+}
+
+// INIT
+void	init_map(t_map *map)
+{
+	map->map = NULL;
+	map->nb_lines = 0;
+	map->line_len = 0;
+	map->exit = 0;
+	map->player = 0;
+	map->collectible = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 13:53:43 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:55:15 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,6 @@ t_map	check_map(int argc,	char *filename, t_map map)
 	if (check_walls(map) == 0)
 		ft_putendl_fd("Map is not surronded by walls.", 2);
 	return (map);
-}
-
-void	init_map(t_map *map)
-{
-	map->map = NULL;
-	map->nb_lines = 0;
-	map->line_len = 0;
-	map->exit = 0;
-	map->player = 0;
-	map->collectible = 0;
 }
 
 int	main(int argc, char *argv[])
