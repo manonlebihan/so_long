@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 12:10:30 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:47:41 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	init_map(t_map *map)
 	map->player = 0;
 	map->collectible = 0;
 }
-
 
 int	main(int argc, char *argv[])
 {
