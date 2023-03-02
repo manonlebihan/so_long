@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 16:09:08 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 11:14:19 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # include "mlx.h"
 
 /******************* STRUCTS *******************/
-
 
 /* typedef struct s_solong
 {
@@ -91,7 +90,6 @@ typedef struct s_solong
 void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
 void	load_map(t_map *m, int fd);
 void	free_map(t_map m);
-
 
 /******************* CHECK MAP FUNCTIONS *******************/
 // void	check_map(int argc, char *filename);
