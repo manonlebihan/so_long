@@ -6,13 +6,19 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 15:28:29 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:34:22 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_map	check_map(int argc,	char *filename, t_map map)
+int	ft_error(char *msg)
+{
+	ft_putendl_fd(msg, 2);
+	return (0);
+}
+
+int	check_map(int argc,	char *filename, t_map *map)
 {
 	int		fd;
 
@@ -23,25 +29,28 @@ t_map	check_map(int argc,	char *filename, t_map map)
 	}
 	check_extension(filename);
 	fd = open(filename, O_RDONLY);
-	load_map(&map, fd);
+	load_map(map, fd);
 	close(fd);
-	if (check_rectangle(map) == (0))
-		ft_putendl_fd("Map is not a rectangle.", 2);
-	if (check_chars(map) == 0)
-		ft_putendl_fd("Map contains forbidden characters.", 2);
-	if (check_items(map) == 0)
-		ft_putendl_fd("There is either too many items or not enough.", 2);
-	if (check_walls(map) == 0)
-		ft_putendl_fd("Map is not surronded by walls.", 2);
-	return (map);
+	if (check_rectangle(*map) == (0))
+		return (ft_error("Map is not a rectangle."));
+	if (check_chars(*map) == 0)
+		return (ft_error("Map contains forbidden characters."));
+	if (check_items(*map) == 0)
+		return (ft_error("There is either too many items or not enough."));
+	if (check_walls(*map) == 0)
+		return (ft_error("Map is not surronded by walls."));
+	return (1);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_solong	sl;
+	t_map	map;
 
-	sl.map = check_map(argc, argv[1], sl.map);
-	display_window(sl.map);
-	free_map(sl.map);
+	if (check_map(argc, argv[1], &map) == 1)
+	{
+		printf("c'est OK\n");
+		display_window(map);
+	}
+	free_map(map);
 	return (1);
 }
