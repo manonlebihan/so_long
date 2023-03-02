@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 14:41:58 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:28:29 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	main(int argc, char *argv[])
 {
 	t_solong	sl;
 
-	//init_map(&sl.map);
 	sl.map = check_map(argc, argv[1], sl.map);
 	display_window(sl.map);
 	free_map(sl.map);

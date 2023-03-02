@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 14:42:57 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:28:11 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,11 @@ int		check_walls(t_map m);
 
 /******************* DISPLAY FUNCTIONS *******************/
 void	display_window(t_map map);
+
+/******************* TETXURES FUNCTIONS *******************/
+void	init_textures(t_mlx *mlx, t_img *txt, char *path);
+void	get_textures(t_mlx *mlx);
+void	write_textures(char c, t_mlx mlx, int i, int j);
+void	put_textures(t_mlx mlx, t_map map);
 
 #endif
