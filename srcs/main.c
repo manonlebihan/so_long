@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 13:47:41 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:53:43 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_map(int argc,	char *filename, t_map map)
+t_map	check_map(int argc,	char *filename, t_map map)
 {
 	int		fd;
 
@@ -33,7 +33,7 @@ void	check_map(int argc,	char *filename, t_map map)
 		ft_putendl_fd("There is either too many items or not enough.", 2);
 	if (check_walls(map) == 0)
 		ft_putendl_fd("Map is not surronded by walls.", 2);
-	free_map(map);
+	return (map);
 }
 
 void	init_map(t_map *map)
@@ -50,6 +50,9 @@ int	main(int argc, char *argv[])
 {
 	t_solong	sl;
 
-	init_map(&sl.map);
-	check_map(argc, argv[1], sl.map);
+	//init_map(&sl.map);
+	sl.map = check_map(argc, argv[1], sl.map);
+	printf("line len : %d\n", sl.map.line_len);
+	printf("nb line : %d\n", sl.map.nb_lines);
+	free_map(sl.map);
 }
