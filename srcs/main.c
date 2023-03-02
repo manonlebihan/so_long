@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 13:55:15 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:59:02 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,5 @@ int	main(int argc, char *argv[])
 
 	//init_map(&sl.map);
 	sl.map = check_map(argc, argv[1], sl.map);
-	printf("line len : %d\n", sl.map.line_len);
-	printf("nb line : %d\n", sl.map.nb_lines);
 	free_map(sl.map);
 }
