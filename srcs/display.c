@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:35:32 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 16:10:42 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:03:27 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	display_window(t_map map)
 	t_mlx		mlx;
 	t_solong	sl;
 
+	sl.map = map;
 	mlx.mlx_ptr = mlx_init();
 	if (mlx.mlx_ptr == NULL)
 	{
@@ -57,6 +58,7 @@ void	display_window(t_map map)
 			(mlx.txt.floor.width * map.line_len),
 			(mlx.txt.floor.height * map.nb_lines), "so_long");
 	put_textures(mlx, map);
+	sl.mlx = mlx;
 	//mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &mlx);
 	mlx_hook(mlx.win_ptr, 2, 1L << 0, direction, &sl);
 	mlx_loop(mlx.mlx_ptr);

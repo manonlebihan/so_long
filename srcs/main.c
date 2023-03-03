@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 20:34:22 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:49:50 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char *argv[])
 
 	if (check_map(argc, argv[1], &map) == 1)
 	{
-		printf("c'est OK\n");
+		printf("C'est OK\n");
 		display_window(map);
 	}
 	free_map(map);
