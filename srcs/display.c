@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:35:32 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/03 16:03:27 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:33:40 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 	}
 	return (0);
 } */
+
 int	free_mlx(t_mlx *mlx, t_map *map)
 {
 	if (mlx->mlx_ptr != NULL)
