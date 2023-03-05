@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:26:40 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/02 20:35:59 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:29:48 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_textures(t_mlx *mlx, t_img *txt, char *path)
 
 void	get_textures(t_mlx *mlx)
 {
-	init_textures(mlx, &mlx->txt.floor, "textures/teapot.xpm");
+	init_textures(mlx, &mlx->txt.floor, "textures/minion.xpm");
 }
 
 void	write_textures(char c, t_mlx mlx, int i, int j)

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:35:32 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/03 16:33:40 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:23:00 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	free_mlx(t_mlx *mlx, t_map *map)
 	{
 		mlx_destroy_image(mlx->mlx_ptr, mlx->txt.floor.mlx_img);
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx_destroy_display(mlx->mlx_ptr);
 		free(mlx->mlx_ptr);
 	}
 	free_map(*map);
@@ -61,7 +62,7 @@ void	display_window(t_map map)
 	put_textures(mlx, map);
 	sl.mlx = mlx;
 	//mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &mlx);
-	mlx_hook(mlx.win_ptr, 2, 1L << 0, direction, &sl);
+	mlx_hook(mlx.win_ptr, 2, 1L << 0, &direction, &sl);
 	mlx_loop(mlx.mlx_ptr);
 	free(mlx.mlx_ptr);
 }
