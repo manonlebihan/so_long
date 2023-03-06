@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:26:40 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/05 18:29:48 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:01:09 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,26 @@ void	init_textures(t_mlx *mlx, t_img *txt, char *path)
 
 void	get_textures(t_mlx *mlx)
 {
-	init_textures(mlx, &mlx->txt.floor, "textures/minion.xpm");
+	init_textures(mlx, &mlx->txt.collect, "textures/collectible.xpm");
+	init_textures(mlx, &mlx->txt.floor, "textures/floor.xpm");
+	init_textures(mlx, &mlx->txt.player, "textures/player.xpm");
+	init_textures(mlx, &mlx->txt.wall, "textures/wall.xpm");
 }
 
 void	write_textures(char c, t_mlx mlx, int i, int j)
 {
-	(void) c;
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.floor.mlx_img,
-		(mlx.txt.floor.width * j), (mlx.txt.floor.height * i));
+	if (c == '1')
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.wall.mlx_img,
+			(mlx.txt.wall.width * j), (mlx.txt.wall.height * i));
+	else if (c == '0')
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.floor.mlx_img,
+			(mlx.txt.floor.width * j), (mlx.txt.floor.height * i));
+	else if (c == 'P')
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.player.mlx_img,
+			(mlx.txt.player.width * j), (mlx.txt.player.height * i));
+	else if (c == 'C')
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.collect.mlx_img,
+			(mlx.txt.collect.width * j), (mlx.txt.collect.height * i));
 }
 
 void	put_textures(t_mlx mlx, t_map map)
