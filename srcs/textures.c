@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:26:40 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 15:01:09 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:37:34 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ void	write_textures(char c, t_mlx mlx, int i, int j)
 		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.floor.mlx_img,
 			(mlx.txt.floor.width * j), (mlx.txt.floor.height * i));
 	else if (c == 'P')
-		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.player.mlx_img,
-			(mlx.txt.player.width * j), (mlx.txt.player.height * i));
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
+			mlx.txt.player.mlx_img, (mlx.txt.player.width * j),
+			(mlx.txt.player.height * i));
 	else if (c == 'C')
-		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.collect.mlx_img,
-			(mlx.txt.collect.width * j), (mlx.txt.collect.height * i));
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
+			mlx.txt.collect.mlx_img, (mlx.txt.collect.width * j),
+			(mlx.txt.collect.height * i));
 }
 
 void	put_textures(t_mlx mlx, t_map map)
