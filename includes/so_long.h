@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 16:57:34 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 23:10:14 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ void	free_map(t_map m);
 /******************* CHECK MAP FUNCTIONS *******************/
 // void	check_map(int argc, char *filename);
 void	check_extension(char *filename);
-int		check_rectangle(t_map m);
+int		check_rectangle(t_map *m);
 int		check_chars(t_map *m);
-int		check_items(t_map m);
-int		check_walls(t_map m);
+int		check_items(t_map *m);
+int		check_walls(t_map *m);
 
 /******************* DISPLAY FUNCTIONS *******************/
 void	display_window(t_map map);

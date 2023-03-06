@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:55:44 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 21:50:40 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:53:10 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	move_up(t_solong *sl)
 	else if (sl->map.map[sl->map.player_y - 1][sl->map.player_x] == 'E' &&
 			sl->map.collectible == 0)
 	{
-		free_mlx(&sl->mlx, &sl->map);
+		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
 }
@@ -45,7 +45,7 @@ void	move_down(t_solong *sl)
 	else if (sl->map.map[sl->map.player_y + 1][sl->map.player_x] == 'E' &&
 			sl->map.collectible == 0)
 	{
-		free_mlx(&sl->mlx, &sl->map);
+		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
 }
@@ -64,7 +64,7 @@ void	move_left(t_solong *sl)
 	else if (sl->map.map[sl->map.player_y][sl->map.player_x - 1] == 'E' &&
 			sl->map.collectible == 0)
 	{
-		free_mlx(&sl->mlx, &sl->map);
+		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
 }
@@ -83,7 +83,7 @@ void	move_right(t_solong *sl)
 		else if (sl->map.map[sl->map.player_y][sl->map.player_x + 1] == 'E' &&
 			sl->map.collectible == 0)
 	{
-		free_mlx(&sl->mlx, &sl->map);
+		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
 }

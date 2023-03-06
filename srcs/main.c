@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 21:18:00 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 23:09:10 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	check_map(int argc,	char *filename, t_map *map)
 	fd = open(filename, O_RDONLY);
 	load_map(map, fd);
 	close(fd);
-	if (check_rectangle(*map) == (0))
+	if (check_rectangle(map) == (0))
 		return (ft_error("Map is not a rectangle."));
 	if (check_chars(map) == 0)
 		return (ft_error("Map contains forbidden characters."));
-	if (check_items(*map) == 0)
+	if (check_items(map) == 0)
 		return (ft_error("There is either too many items or not enough."));
-	if (check_walls(*map) == 0)
+	if (check_walls(map) == 0)
 		return (ft_error("Map is not surronded by walls."));
 	return (1);
 }
@@ -49,6 +49,7 @@ int	main(int argc, char *argv[])
 	if (check_map(argc, argv[1], &map) == 1)
 	{
 		printf("C'est OK\n");
+		//map.collectible = 1;
 		display_window(map);
 	}
 	free_map(map);
