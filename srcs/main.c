@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/03 15:49:50 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:28:06 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_map(int argc,	char *filename, t_map *map)
 	close(fd);
 	if (check_rectangle(*map) == (0))
 		return (ft_error("Map is not a rectangle."));
-	if (check_chars(*map) == 0)
+	if (check_chars(map) == 0)
 		return (ft_error("Map contains forbidden characters."));
 	if (check_items(*map) == 0)
 		return (ft_error("There is either too many items or not enough."));

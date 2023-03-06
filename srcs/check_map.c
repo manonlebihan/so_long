@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/01 11:01:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:27:01 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,27 @@ int	check_rectangle(t_map m)
 	return (1);
 }
 
-int	check_chars(t_map m)
+int	check_chars(t_map *m)
 {
 	int	i;
 	int	j;
 
 	j = 0;
-	while (j != m.nb_lines)
+	while (j != m->nb_lines)
 	{
 		i = 0;
-		while (m.map[j][i] != '\0')
+		while (m->map[j][i] != '\0')
 		{
-			if (m.map[j][i] != '1' && m.map[j][i] != '0' &&
-					m.map[j][i] != 'E' && m.map[j][i] != 'C'
-					&& m.map[j][i] != 'P' && m.map[j][i] != '\n')
+			if (m->map[j][i] != '1' && m->map[j][i] != '0' &&
+					m->map[j][i] != 'E' && m->map[j][i] != 'C'
+					&& m->map[j][i] != 'P' && m->map[j][i] != '\n')
 			{
 				return (0);
+			}
+			if (m->map[j][i] == 'P')
+			{
+				m->player_x = i;
+				m->player_y = j;
 			}
 			i++;
 		}
