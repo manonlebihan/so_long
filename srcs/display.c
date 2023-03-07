@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:35:32 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 22:24:06 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:00:52 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	display_window(t_map map)
 	}
 	get_textures(&mlx);
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr,
-			(mlx.txt.floor.width * map.line_len),
+			(mlx.txt.floor.width * (map.line_len - 1)),
 			(mlx.txt.floor.height * map.nb_lines), "so_long");
 	put_textures(mlx, map);
 	sl.mlx = mlx;
