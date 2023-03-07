@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/07 12:04:38 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/07 18:43:10 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,13 @@ typedef struct s_mlx
 typedef struct s_map
 {
 	char		**map;
+	char		**map_copy;
 	int			nb_lines;
 	int			line_len;
 	int			exit;
 	int			player;
 	int			collectible;
+	int			collectible_copy;
 	int			player_x;
 	int			player_y;
 	int			count;
@@ -93,9 +95,9 @@ typedef struct s_solong
 void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
 void	load_map(t_map *m, int fd);
 void	free_map(t_map m);
+void	free_map_copy(t_map m);
 
 /******************* CHECK MAP FUNCTIONS *******************/
-// void	check_map(int argc, char *filename);
 void	check_extension(char *filename);
 int		check_rectangle(t_map *m);
 int		check_chars(t_map *m);
@@ -114,5 +116,8 @@ void	put_textures(t_mlx mlx, t_map map);
 
 /******************* DIRECTION FUNCTIONS *******************/
 int		direction(int keycode, t_solong *sl);
+
+/******************* FLOOD FILL FUNCTIONS *******************/
+int		flood_fill(t_map *m);
 
 #endif

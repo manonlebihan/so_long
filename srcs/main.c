@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/07 12:05:15 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:08:15 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	check_map(int argc,	char *filename, t_map *map)
 		return (ft_error("There is either too many items or not enough."));
 	if (check_walls(map) == 0)
 		return (ft_error("Map is not surronded by walls."));
+	if (flood_fill(map) == 0)
+		return (ft_error("There is no possible path..."));
 	return (1);
 }
 
@@ -53,5 +55,6 @@ int	main(int argc, char *argv[])
 		display_window(map);
 	}
 	free_map(map);
+	free_map_copy(map);
 	return (1);
 }
