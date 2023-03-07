@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:55:44 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 22:53:10 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:09:35 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	move_up(t_solong *sl)
 {
+	sl->map.count++;
 	if (sl->map.map[sl->map.player_y - 1][sl->map.player_x] != '1' &&
 			sl->map.map[sl->map.player_y - 1][sl->map.player_x] != 'E')
 	{
@@ -22,10 +23,12 @@ void	move_up(t_solong *sl)
 		sl->map.map[sl->map.player_y - 1][sl->map.player_x] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_y--;
+		ft_printf("Number of moves : %d\n", sl->map.count);
 	}
 	else if (sl->map.map[sl->map.player_y - 1][sl->map.player_x] == 'E' &&
 			sl->map.collectible == 0)
 	{
+		ft_printf("You won with %d moves !\n", sl->map.count);
 		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
@@ -33,6 +36,7 @@ void	move_up(t_solong *sl)
 
 void	move_down(t_solong *sl)
 {
+	sl->map.count++;
 	if (sl->map.map[sl->map.player_y + 1][sl->map.player_x] != '1' &&
 			sl->map.map[sl->map.player_y + 1][sl->map.player_x] != 'E')
 	{
@@ -41,10 +45,12 @@ void	move_down(t_solong *sl)
 		sl->map.map[sl->map.player_y + 1][sl->map.player_x] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_y++;
+		ft_printf("Number of moves : %d\n", sl->map.count);
 	}
 	else if (sl->map.map[sl->map.player_y + 1][sl->map.player_x] == 'E' &&
 			sl->map.collectible == 0)
 	{
+		ft_printf("You won with %d moves !\n", sl->map.count);
 		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
@@ -52,6 +58,7 @@ void	move_down(t_solong *sl)
 
 void	move_left(t_solong *sl)
 {
+	sl->map.count++;
 	if (sl->map.map[sl->map.player_y][sl->map.player_x - 1] != '1' &&
 			sl->map.map[sl->map.player_y][sl->map.player_x - 1] != 'E')
 	{
@@ -60,10 +67,12 @@ void	move_left(t_solong *sl)
 		sl->map.map[sl->map.player_y][sl->map.player_x - 1] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_x--;
+		ft_printf("Number of moves : %d\n", sl->map.count);
 	}
 	else if (sl->map.map[sl->map.player_y][sl->map.player_x - 1] == 'E' &&
 			sl->map.collectible == 0)
 	{
+		ft_printf("You won with %d moves !\n", sl->map.count);
 		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);
@@ -71,6 +80,7 @@ void	move_left(t_solong *sl)
 
 void	move_right(t_solong *sl)
 {
+	sl->map.count++;
 	if (sl->map.map[sl->map.player_y][sl->map.player_x + 1] != '1' &&
 			sl->map.map[sl->map.player_y][sl->map.player_x + 1] != 'E')
 	{
@@ -79,10 +89,12 @@ void	move_right(t_solong *sl)
 		sl->map.map[sl->map.player_y][sl->map.player_x + 1] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_x++;
+		ft_printf("Number of moves : %d\n", sl->map.count);
 	}
-		else if (sl->map.map[sl->map.player_y][sl->map.player_x + 1] == 'E' &&
+	else if (sl->map.map[sl->map.player_y][sl->map.player_x + 1] == 'E' &&
 			sl->map.collectible == 0)
 	{
+		ft_printf("You won with %d moves !\n", sl->map.count);
 		free_mlx(&(sl->mlx), &(sl->map));
 	}
 	put_textures(sl->mlx, sl->map);

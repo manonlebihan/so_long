@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 23:10:14 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:04:38 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct s_map
 	int			collectible;
 	int			player_x;
 	int			player_y;
+	int			count;
 }	t_map;
 
 typedef struct s_solong
