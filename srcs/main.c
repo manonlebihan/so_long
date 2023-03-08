@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 20:16:52 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:27:19 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,9 @@ int	main(int argc, char *argv[])
 		{
 			dup.collectible_copy = 0;
 			dup.exit_copy = 0;
-			dup.player_x_copy = 0;
-			dup.player_y_copy = 0;
-			dup.player_y_copy = map.player_y;
-			flood_fill(&dup, dup.player_x_copy, dup.player_y_copy);
+			dup.player_x = map.player_x;
+			dup.player_y = map.player_y;
+			flood_fill(&dup, dup.player_x, dup.player_y);
 			if (dup.collectible_copy == 1 && dup.exit_copy == 1)
 			{
 				printf("Possible path\n");
