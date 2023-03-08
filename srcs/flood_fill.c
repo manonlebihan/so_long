@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:10:24 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 15:28:26 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:16:10 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_player(t_map *m, int x, int y)
+/* int	check_player(t_map *m, int x, int y)
 {
 	if (m->map_copy[x][y] == 'P' &&
 		(m->map_copy[x + 1][y] == 'C' || m->map_copy[x + 1][y] == '0'
@@ -86,5 +86,23 @@ int	flood_fill(t_map *m)
 	}
 	if (m->collectible_copy == 0 && check_exit(m))
 		return (1);
+	return (0);
+} */
+
+int	flood_fill(t_map *m, int x, int y)
+{
+	if (m->map[y][x] != '1')
+	{
+		if (m->map[y][x] == 'C')
+			m->collectible_copy++;
+		if (m->map[y][x] == 'E')
+			m->exit_copy++;
+		m->map[y][x] = '1';
+		flood_fill(m, x + 1, y);
+		flood_fill(m, x, y - 1);
+		flood_fill(m, x - 1, y);
+		flood_fill(m, x, y + 1);
+		return (1);
+	}
 	return (0);
 }

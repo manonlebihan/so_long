@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 15:35:12 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:30:59 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,14 @@ typedef struct s_map
 	int			nb_lines;
 	int			line_len;
 	int			exit;
+	int			exit_copy;
 	int			player;
 	int			collectible;
 	int			collectible_copy;
 	int			player_x;
 	int			player_y;
+	int			player_x_copy;
+	int			player_y_copy;
 	int			count;
 }	t_map;
 
@@ -95,7 +98,7 @@ typedef struct s_solong
 void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
 void	load_map(t_map *m, int fd);
 void	free_map(t_map m);
-void	free_map_copy(t_map m);
+int		duplicate_map(t_map m, t_map *dup);
 
 /******************* CHECK MAP FUNCTIONS *******************/
 void	check_extension(char *filename);
@@ -118,6 +121,6 @@ void	put_textures(t_mlx mlx, t_map map);
 int		direction(int keycode, t_solong *sl);
 
 /******************* FLOOD FILL FUNCTIONS *******************/
-int		flood_fill(t_map *m);
+int		flood_fill(t_map *m, int x, int y);
 
 #endif

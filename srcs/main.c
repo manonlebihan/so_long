@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 15:35:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:16:52 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_error(char *msg)
 int	check_map(int argc,	char *filename, t_map *map)
 {
 	int		fd;
-
+	
 	if (argc != 2)
 	{
 		ft_putendl_fd("Not enough arguments, usage: ./so_long [file.ber]", 2);
@@ -39,34 +39,40 @@ int	check_map(int argc,	char *filename, t_map *map)
 		return (ft_error("There is either too many items or not enough."));
 	if (check_walls(map) == 0)
 		return (ft_error("Map is not surronded by walls."));
-	/* if (flood_fill(map) == 0)
-		return (ft_error("There is no possible path...")); */
 	return (1);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_map	map;
+	t_map	dup;
 
 	if (check_map(argc, argv[1], &map) == 1)
 	{
 		printf("C'est OK\n");
-		for (int i = 0; i < map.nb_lines; i++)
+		if (duplicate_map(map, &dup))
 		{
-			printf("%s", map.map[i]);
-		}
-		printf("\n");
-		printf("\n");
-		printf("\n");
-		printf("\n");
-		for (int i = 0; i < map.nb_lines; i++)
-		{
-			printf("%s", map.map_copy[i]);
+			dup.collectible_copy = 0;
+			dup.exit_copy = 0;
+			dup.player_x_copy = 0;
+			dup.player_y_copy = 0;
+			dup.player_y_copy = map.player_y;
+			flood_fill(&dup, dup.player_x_copy, dup.player_y_copy);
+			if (dup.collectible_copy == 1 && dup.exit_copy == 1)
+			{
+				printf("Possible path\n");
+			}
+			else
+			{
+				printf("There is no possible path...\n");
+				free_map(dup);
+				free_map(map);
+				exit(EXIT_FAILURE);
+			}
 		}
 		map.count = 0;
 		display_window(map);
 	}
 	free_map(map);
-	free_map_copy(map);
 	return (1);
 }
