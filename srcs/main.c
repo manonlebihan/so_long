@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 20:27:19 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:42:54 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char *argv[])
 
 	if (check_map(argc, argv[1], &map) == 1)
 	{
-		printf("C'est OK\n");
 		if (duplicate_map(map, &dup))
 		{
 			dup.collectible_copy = 0;
@@ -57,17 +56,14 @@ int	main(int argc, char *argv[])
 			dup.player_x = map.player_x;
 			dup.player_y = map.player_y;
 			flood_fill(&dup, dup.player_x, dup.player_y);
-			if (dup.collectible_copy == 1 && dup.exit_copy == 1)
-			{
-				printf("Possible path\n");
-			}
-			else
+			if (dup.collectible_copy != 1 || dup.exit_copy != 1)
 			{
 				printf("There is no possible path...\n");
 				free_map(dup);
 				free_map(map);
 				exit(EXIT_FAILURE);
 			}
+			free_map(dup);
 		}
 		map.count = 0;
 		display_window(map);

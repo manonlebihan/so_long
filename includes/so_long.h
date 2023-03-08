@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 19:30:59 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:42:16 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ typedef struct s_mlx
 typedef struct s_map
 {
 	char		**map;
-	char		**map_copy;
 	int			nb_lines;
 	int			line_len;
 	int			exit;
