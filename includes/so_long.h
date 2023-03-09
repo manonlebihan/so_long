@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:34:54 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:41:30 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_map
 	int			exit;
 	int			exit_copy;
 	int			player;
+	int			enemy;
 	int			collectible;
 	int			collectible_copy;
 	int			player_x;

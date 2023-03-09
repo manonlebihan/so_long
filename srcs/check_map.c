@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:30:13 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:52:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,9 @@ int	check_chars(t_map *m)
 		{
 			if (m->map[j][i] != '1' && m->map[j][i] != '0' &&
 					m->map[j][i] != 'E' && m->map[j][i] != 'C'
-					&& m->map[j][i] != 'P' && m->map[j][i] != '\n')
-			{
+					&& m->map[j][i] != 'P' && m->map[j][i] != 'B'
+					&& m->map[j][i] != '\n')
 				return (0);
-			}
 			if (m->map[j][i] == 'P')
 			{
 				m->player_x = i;
@@ -78,9 +77,10 @@ int	check_items(t_map *m)
 	int	j;
 
 	j = 0;
-	m->exit = 0;
+/* 	m->exit = 0;
 	m->player = 0;
 	m->collectible = 0;
+	m->enemy = 0; */
 	while (j != m->nb_lines)
 	{
 		i = 0;
@@ -92,11 +92,13 @@ int	check_items(t_map *m)
 				m->player++;
 			else if (m->map[j][i] == 'C')
 				m->collectible++;
+			else if (m->map[j][i] == 'B')
+				m->enemy++;
 			i++;
 		}
 		j++;
 	}
-	if (m->exit != 1 || m->player != 1 || m->collectible < 1)
+	if (m->exit != 1 || m->player != 1 || m->collectible < 1 || m->enemy < 1)
 		return (0);
 	return (1);
 }

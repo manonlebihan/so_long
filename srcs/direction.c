@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:55:44 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 14:17:14 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:50:09 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	move_up(t_solong *sl)
 		sl->map.count++;
 		if (sl->map.map[sl->map.player_y - 1][sl->map.player_x] == 'C')
 			sl->map.collectible--;
+		else if (sl->map.map[sl->map.player_y - 1][sl->map.player_x] == 'B')
+		{
+			ft_printf("Ooooh you died :( Try again !\n");
+			free_mlx(&(sl->mlx), &(sl->map));
+		}
 		sl->map.map[sl->map.player_y - 1][sl->map.player_x] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_y--;
@@ -43,6 +48,11 @@ void	move_down(t_solong *sl)
 		sl->map.count++;
 		if (sl->map.map[sl->map.player_y + 1][sl->map.player_x] == 'C')
 			sl->map.collectible--;
+		else if (sl->map.map[sl->map.player_y + 1][sl->map.player_x] == 'B')
+		{
+			ft_printf("Ooooh you died :( Try again !\n");
+			free_mlx(&(sl->mlx), &(sl->map));
+		}
 		sl->map.map[sl->map.player_y + 1][sl->map.player_x] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_y++;
@@ -66,6 +76,11 @@ void	move_left(t_solong *sl)
 		sl->map.count++;
 		if (sl->map.map[sl->map.player_y][sl->map.player_x - 1] == 'C')
 			sl->map.collectible--;
+		else if (sl->map.map[sl->map.player_y][sl->map.player_x - 1] == 'B')
+		{
+			ft_printf("Ooooh you died :( Try again !\n");
+			free_mlx(&(sl->mlx), &(sl->map));
+		}
 		sl->map.map[sl->map.player_y][sl->map.player_x - 1] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_x--;
@@ -88,6 +103,11 @@ void	move_right(t_solong *sl)
 	{
 		if (sl->map.map[sl->map.player_y][sl->map.player_x + 1] == 'C')
 			sl->map.collectible--;
+		else if (sl->map.map[sl->map.player_y][sl->map.player_x + 1] == 'B')
+		{
+			ft_printf("Ooooh you died :( Try again !\n");
+			free_mlx(&(sl->mlx), &(sl->map));
+		}
 		sl->map.map[sl->map.player_y][sl->map.player_x + 1] = 'P';
 		sl->map.map[sl->map.player_y][sl->map.player_x] = '0';
 		sl->map.player_x++;
