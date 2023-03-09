@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 20:42:54 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:57:16 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,31 @@ int	ft_error(char *msg)
 	return (0);
 }
 
+int	check_flood_fill(t_map map)
+{
+	t_map	dup;
+
+	if (duplicate_map(map, &dup))
+	{
+		dup.collectible_copy = 0;
+		dup.exit_copy = 0;
+		dup.player_x = map.player_x;
+		dup.player_y = map.player_y;
+		flood_fill(&dup, dup.player_x, dup.player_y);
+		if (dup.collectible_copy != 1 || dup.exit_copy != 1)
+		{
+			free_map(dup);
+			return (0);
+		}
+	}
+	free_map(dup);
+	return (1);
+}
+
 int	check_map(int argc,	char *filename, t_map *map)
 {
 	int		fd;
-	
+
 	if (argc != 2)
 	{
 		ft_putendl_fd("Not enough arguments, usage: ./so_long [file.ber]", 2);
@@ -39,32 +60,18 @@ int	check_map(int argc,	char *filename, t_map *map)
 		return (ft_error("There is either too many items or not enough."));
 	if (check_walls(map) == 0)
 		return (ft_error("Map is not surronded by walls."));
+	if (check_flood_fill(*map) == 0)
+		return (ft_error("There is no possible path..."));
 	return (1);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_map	map;
-	t_map	dup;
 
 	if (check_map(argc, argv[1], &map) == 1)
 	{
-		if (duplicate_map(map, &dup))
-		{
-			dup.collectible_copy = 0;
-			dup.exit_copy = 0;
-			dup.player_x = map.player_x;
-			dup.player_y = map.player_y;
-			flood_fill(&dup, dup.player_x, dup.player_y);
-			if (dup.collectible_copy != 1 || dup.exit_copy != 1)
-			{
-				printf("There is no possible path...\n");
-				free_map(dup);
-				free_map(map);
-				exit(EXIT_FAILURE);
-			}
-			free_map(dup);
-		}
+		check_flood_fill(map);
 		map.count = 0;
 		display_window(map);
 	}
