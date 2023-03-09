@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 18:35:00 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:00:41 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ int	duplicate_map(t_map m, t_map *dup)
 	dup->map = (char **)malloc(m.nb_lines * sizeof(char *));
 	if (dup->map == NULL)
 		return (0);
-	while (i < m.nb_lines) 
+	while (i < m.nb_lines)
 	{
 		dup->map[i] = ft_strdup(m.map[i]);
 		if (dup->map[i] == NULL)
 		{
-			while(i)
-				free(dup->map[--i]);
+			while (i)
+			{
+				free(dup->map[i]);
+				i--;
+			}
 			free(dup->map);
 			return (0);
 		}
@@ -95,16 +98,3 @@ void	free_map(t_map m)
 	}
 	free(m.map);
 }
-
-/* void	free_map_copy(t_map m)
-{
-	int	i;
-
-	i = 0;
-	while (i < m.nb_lines)
-	{
-		free(m.map_copy[i]);
-		i++;
-	}
-	free(m.map_copy);
-} */
