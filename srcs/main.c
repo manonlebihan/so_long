@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:03:29 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:14:41 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_flood_fill(t_map map)
 		dup.player_x = map.player_x;
 		dup.player_y = map.player_y;
 		flood_fill(&dup, dup.player_x, dup.player_y);
-		if (dup.collectible_copy != 1 || dup.exit_copy != 1)
+		if (dup.collectible_copy < 1 || dup.exit_copy != 1)
 		{
 			free_map(dup);
 			return (0);

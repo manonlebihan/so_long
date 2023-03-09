@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 23:10:26 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:16:26 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	check_items(t_map *m)
 		}
 		j++;
 	}
-	if (m->exit != 1 || m->player != 1 || m->collectible != 1)
+	if (m->exit != 1 || m->player != 1 || m->collectible < 1)
 		return (0);
 	return (1);
 }
