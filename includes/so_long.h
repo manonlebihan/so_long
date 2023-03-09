@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:08:17 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:34:54 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,11 @@ int		check_chars(t_map *m);
 int		check_items(t_map *m);
 int		check_walls(t_map *m);
 int		check_rectangle(t_map *m);
-void	check_extension(char *filename);
+int		check_extension(char *filename);
 
 /******************* DISPLAY FUNCTIONS *******************/
 void	display_window(t_map map);
 int		free_mlx(t_mlx *mlx, t_map *map);
-
 
 /******************* TETXURES FUNCTIONS *******************/
 void	get_textures(t_mlx *mlx);

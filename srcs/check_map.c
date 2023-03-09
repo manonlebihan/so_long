@@ -6,35 +6,22 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:16:26 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:30:13 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_extension(char *filename)
+int	check_extension(char *filename)
 {
 	int	i;
 
 	i = 0;
 	i = ft_strlen(filename);
-	if (filename[i - 1] == 'r' && filename[i - 2] == 'e'
-		&& filename[i - 3] == 'b' && filename[i - 4] == '.')
-	{
-		i = open(filename, O_RDONLY);
-		if (i == -1)
-		{
-			ft_putendl_fd("File does not exist.", 2);
-			exit(EXIT_FAILURE);
-		}
-		else
-			close(i);
-	}
-	else
-	{
-		ft_putendl_fd("File not valid, should be a .ber file !", 2);
-		exit(EXIT_FAILURE);
-	}
+	if (filename[i - 1] != 'r' || filename[i - 2] != 'e'
+		|| filename[i - 3] != 'b' || filename[i - 4] != '.')
+		return (0);
+	return (1);
 }
 
 int	check_rectangle(t_map *m)

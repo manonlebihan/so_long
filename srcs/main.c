@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:14:41 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:34:34 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_error(char *msg)
 {
+	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(msg, 2);
 	return (0);
 }
@@ -47,7 +48,7 @@ int	check_flood_fill(t_map map)
 		dup.player_x = map.player_x;
 		dup.player_y = map.player_y;
 		flood_fill(&dup, dup.player_x, dup.player_y);
-		if (dup.collectible_copy < 1 || dup.exit_copy != 1)
+		if (dup.collectible_copy != map.collectible || dup.exit_copy != 1)
 		{
 			free_map(dup);
 			return (0);
@@ -63,11 +64,14 @@ int	check_map(int argc,	char *filename, t_map *map)
 
 	if (argc != 2)
 	{
-		ft_putendl_fd("Not enough arguments, usage: ./so_long [file.ber]", 2);
+		ft_putendl_fd("Error\nNot enough arguments : ./so_long [file.ber]", 2);
 		exit(EXIT_FAILURE);
 	}
-	check_extension(filename);
 	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (ft_error("File does not exist."));
+	if (check_extension(filename) == 0)
+		return (ft_error("File not valid, should be a .ber file."));
 	load_map(map, fd);
 	close(fd);
 	if (check_rectangle(map) == (0))
