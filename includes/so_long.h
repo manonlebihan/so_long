@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/08 20:42:16 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:08:17 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,6 @@
 # include "mlx.h"
 
 /******************* STRUCTS *******************/
-
-/* typedef struct s_solong
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		x;
-	int		y;
-	t_img	img;
-	//int		cur_img;
-}	t_solong; */
 
 typedef struct s_img
 {
@@ -92,34 +82,29 @@ typedef struct s_solong
 	t_map	map;
 }	t_solong;
 
-/******************* MEMORY MAP FUNCTIONS *******************/
-
-void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
-void	load_map(t_map *m, int fd);
+/******************* MAP FUNCTIONS *******************/
 void	free_map(t_map m);
+void	load_map(t_map *m, int fd);
 int		duplicate_map(t_map m, t_map *dup);
+void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
 
 /******************* CHECK MAP FUNCTIONS *******************/
-void	check_extension(char *filename);
-int		check_rectangle(t_map *m);
 int		check_chars(t_map *m);
 int		check_items(t_map *m);
 int		check_walls(t_map *m);
+int		check_rectangle(t_map *m);
+void	check_extension(char *filename);
 
 /******************* DISPLAY FUNCTIONS *******************/
 void	display_window(t_map map);
 int		free_mlx(t_mlx *mlx, t_map *map);
 
+
 /******************* TETXURES FUNCTIONS *******************/
-void	init_textures(t_mlx *mlx, t_img *txt, char *path);
 void	get_textures(t_mlx *mlx);
-void	write_textures(char c, t_mlx mlx, int i, int j);
 void	put_textures(t_mlx mlx, t_map map);
 
 /******************* DIRECTION FUNCTIONS *******************/
 int		direction(int keycode, t_solong *sl);
-
-/******************* FLOOD FILL FUNCTIONS *******************/
-int		flood_fill(t_map *m, int x, int y);
 
 #endif
