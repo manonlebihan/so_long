@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/10 13:07:51 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:51:04 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int	check_items(t_map *m)
 	int	j;
 
 	j = 0;
-	m->exit = 0;
+	/* m->exit = 0;
 	m->player = 0;
 	m->collectible = 0;
-	m->enemy = 0;
+	m->enemy = 0; */
 	while (j != m->nb_lines)
 	{
 		i = 0;

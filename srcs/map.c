@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:00:41 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:49:39 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	load_map(t_map *m, int fd)
 {
 	char	*line;
 
-	m->map = NULL;
-	m->nb_lines = 0;
+	/* m->map = NULL;
+	m->nb_lines = 0; */
 	line = "";
 	while (line != NULL)
 	{
