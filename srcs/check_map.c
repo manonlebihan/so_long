@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/10 15:51:04 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:52:58 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ int	check_chars(t_map *m)
 			{
 				m->player_x = i;
 				m->player_y = j;
+			}
+			if (m->map[j][i] == 'E')
+			{
+				m->exit_x = i;
+				m->exit_y = j;
 			}
 			i++;
 		}
