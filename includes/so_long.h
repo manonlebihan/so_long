@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:41:30 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:43:40 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_map
 	int			nb_lines;
 	int			line_len;
 	int			exit;
+	int			exit_x;
+	int			exit_y;
 	int			exit_copy;
 	int			player;
 	int			enemy;
