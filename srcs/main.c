@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/09 14:34:34 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:48:43 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,26 @@ int	ft_error(char *msg)
 	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(msg, 2);
 	return (0);
+}
+
+void	init_map(t_map *map)
+{
+	map->map = NULL;
+	map->nb_lines = 0;
+	map->line_len = 0;
+	map->exit = 0;
+	map->exit_copy = 0;
+	map->exit_x = 0;
+	map->exit_y = 0;
+	map->player = 0;
+	map->enemy = 0;
+	map->collectible = 0;
+	map->collectible_copy = 0;
+	map->player_x = 0;
+	map->player_y = 0;
+	map->player_x_copy = 0;
+	map->player_y_copy = 0;
+	map->count = 0;
 }
 
 int	flood_fill(t_map *m, int x, int y)
