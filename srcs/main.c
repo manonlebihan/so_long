@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/10 15:49:24 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/12 16:26:28 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	main(int argc, char *argv[])
 	init_map(&map);
 	if (check_map(argc, argv[1], &map) == 1)
 	{
-		check_flood_fill(map);
+		//check_flood_fill(map);
 		//map.count = 0;
 		display_window(map);
 	}
