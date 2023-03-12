@@ -6,11 +6,31 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/10 15:49:39 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:26:04 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	init_map(t_map *map)
+{
+	map->map = NULL;
+	map->nb_lines = 0;
+	map->line_len = 0;
+	map->exit = 0;
+	map->exit_copy = 0;
+	map->exit_x = 0;
+	map->exit_y = 0;
+	map->player = 0;
+	map->enemy = 0;
+	map->collectible = 0;
+	map->collectible_copy = 0;
+	map->player_x = 0;
+	map->player_y = 0;
+	map->player_x_copy = 0;
+	map->player_y_copy = 0;
+	map->count = 0;
+}
 
 int	duplicate_map(t_map m, t_map *dup)
 {
@@ -69,8 +89,6 @@ void	load_map(t_map *m, int fd)
 {
 	char	*line;
 
-	/* m->map = NULL;
-	m->nb_lines = 0; */
 	line = "";
 	while (line != NULL)
 	{

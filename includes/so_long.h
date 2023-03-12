@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/12 18:16:52 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:25:40 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_solong
 
 /******************* MAP FUNCTIONS *******************/
 void	free_map(t_map m);
+void	init_map(t_map *map);
 void	load_map(t_map *m, int fd);
 int		duplicate_map(t_map m, t_map *dup);
 void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
