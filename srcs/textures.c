@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:26:40 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/06 16:48:51 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:21:56 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_textures(t_mlx *mlx, t_img *txt, char *path)
 void	get_textures(t_mlx *mlx)
 {
 	init_textures(mlx, &mlx->txt.collect, "textures/collectible.xpm");
+	init_textures(mlx, &mlx->txt.enemy, "textures/enemy.xpm");
 	init_textures(mlx, &mlx->txt.exit, "textures/exit.xpm");
 	init_textures(mlx, &mlx->txt.floor, "textures/floor.xpm");
 	init_textures(mlx, &mlx->txt.player, "textures/player.xpm");
@@ -46,6 +47,9 @@ void	write_textures(char c, t_mlx mlx, int i, int j)
 	else if (c == 'E')
 		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.exit.mlx_img,
 			(mlx.txt.exit.width * j), (mlx.txt.exit.height * i));
+	else if (c == 'B')
+		mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.txt.enemy.mlx_img,
+			(mlx.txt.enemy.width * j), (mlx.txt.enemy.height * i));
 }
 
 void	put_textures(t_mlx mlx, t_map map)

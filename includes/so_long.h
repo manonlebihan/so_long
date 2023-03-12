@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/10 15:46:37 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:16:52 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_txt
 	t_img	player;
 	t_img	collect;
 	t_img	exit;
+	t_img	enemy;
 }	t_txt;
 
 typedef struct s_mlx
