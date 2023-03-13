@@ -6,14 +6,12 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/13 11:05:04 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:17:04 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
-// # include <string.h>
 
 # include <X11/X.h>
 # include <X11/keysym.h>
