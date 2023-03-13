@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/13 10:53:54 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/13 12:38:32 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,16 +73,6 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@echo "$(MAGENTA)Creating so_long...$(NO_COLOR)"	
 	@$(CC) $(CFLAGS) $(OBJ) $(INCLUDE) $(LIBS) -o $(NAME)
 	@echo "$(GREEN)so_long OK !$(NO_COLOR)\n"
-
-#$(NAME_BONUS): $(OBJ_BONUS) $(LIBFT)
-#	@echo "$(BLUE)Creating Server Bonus...$(NO_COLOR)"
-#	@$(CC) $(CFLAGS) $(OBJ_SERVER_BONUS) $(INCLUDE) $(LIB) -o $(NAME_BONUS)
-#	@echo "$(GREEN)Server Bonus OK !$(NO_COLOR)\n"
-
-#bonus: $(NAME_BONUS) $(CLIENT_NAME_BONUS) $(LIBFT)
-
-#%.o: %.c
-#	@$(CC) $(INCLUDE) -o $@ -c $< $(CFLAGS)
 
 $(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(INCLUDES) -o $@ -c $< $(CFLAGS) 
