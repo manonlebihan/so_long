@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/13 12:38:32 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/13 12:46:40 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,10 +42,6 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/direction.c \
 						$(SRC_DIR)/assign_char.c
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-# old OBJ = $(SRC:.c=.o)
-
-# SRC_BONUS			= server_bonus.c
-# OBJ_BONUS			= $(SRC_SERVER_BONUS:.c=.o)
 
 # --------------------------- Colors --------------------------- #
 
