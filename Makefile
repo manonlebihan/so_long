@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/13 12:49:36 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/13 14:25:36 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 CC						= gcc
 CFLAGS					= -Wall -Wextra -Werror -I.
 NAME					= so_long
-INCLUDES				= -I $(DIR_LIBFT) -I $(DIR_MLX) -I includes -I $(DIR_LIBFT)/ft_printf -I \
+INCLUDES				= -I $(DIR_LIBFT) -I $(DIR_MLX) -I $(INC_DIR) -I $(DIR_LIBFT)/ft_printf -I \
 							$(DIR_LIBFT)/gnl -I $(DIR_LIBFT)/libft
 LIBS					= -L $(DIR_LIBFT) -lft -L $(DIR_MLX) -lmlx -lXext -lX11
 
@@ -66,7 +66,7 @@ $(MLX):
 	
 $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@echo "$(MAGENTA)Creating so_long...$(NO_COLOR)"	
-	@$(CC) $(CFLAGS) $(OBJ) $(INCLUDE) $(LIBS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(INCLUDES) $(LIBS) -o $(NAME)
 	@echo "$(GREEN)so_long OK !$(NO_COLOR)\n"
 
 $(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
