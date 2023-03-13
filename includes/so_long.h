@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/12 18:25:40 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:53:44 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,11 @@ void	put_textures(t_mlx mlx, t_map map);
 
 /******************* DIRECTION FUNCTIONS *******************/
 int		direction(int keycode, t_solong *sl);
+
+/******************* ASSIGN CHAR FUNCTIONS *******************/
+void	assign_char_up(t_solong *sl);
+void	assign_char_down(t_solong *sl);
+void	assign_char_left(t_solong *sl);
+void	assign_char_right(t_solong *sl);
 
 #endif
