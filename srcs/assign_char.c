@@ -6,11 +6,25 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 10:54:52 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/13 10:55:00 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:04:36 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	assign_x_y(t_map *m, char c, int x, int y)
+{
+	if (c == 'P')
+	{
+		m->player_x = x;
+		m->player_y = y;
+	}
+	else if (c == 'E')
+	{
+		m->exit_x = x;
+		m->exit_y = y;
+	}
+}
 
 void	assign_char_up(t_solong *sl)
 {

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:33:14 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/12 16:27:33 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:05:48 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,7 @@ int	check_chars(t_map *m)
 					&& m->map[j][i] != 'P' && m->map[j][i] != 'B'
 					&& m->map[j][i] != '\n')
 				return (0);
-			if (m->map[j][i] == 'P')
-			{
-				m->player_x = i;
-				m->player_y = j;
-			}
-			if (m->map[j][i] == 'E')
-			{
-				m->exit_x = i;
-				m->exit_y = j;
-			}
+			assign_x_y(m, m->map[j][i], i, j);
 			i++;
 		}
 		j++;
