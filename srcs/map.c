@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 20:24:42 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:26:14 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	else if (oldptr == NULL)
 	{
 		newptr = malloc(newlen * sizeof(char *));
+		if (newptr == NULL)
+			return (NULL);
 		return (newptr);
 	}
 	else if (newlen <= oldlen)
@@ -79,11 +81,10 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	else
 	{
 		newptr = malloc(newlen * sizeof(char *));
-		if (newptr)
-		{
-			ft_memcpy(newptr, oldptr, oldlen * sizeof(char *));
-			free(oldptr);
-		}
+		if (newptr == NULL)
+			return (NULL);
+		ft_memcpy(newptr, oldptr, oldlen * sizeof(char *));
+		free(oldptr);
 		return (newptr);
 	}
 }
