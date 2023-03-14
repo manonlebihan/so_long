@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 15:20:37 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:22:30 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	duplicate_map(t_map m, t_map *dup)
 	i = 0;
 	dup->nb_lines = m.nb_lines;
 	dup->line_len = m.line_len;
-	dup->map = (char **)malloc(m.nb_lines * sizeof(char *));
+	dup->map = (char **)malloc(m.nb_lines * sizeof(char *)); // => OK
 	if (dup->map == NULL)
 		return (0);
 	while (i < m.nb_lines)
