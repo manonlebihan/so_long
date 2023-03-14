@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 15:54:36 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:28:00 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ int	check_map(int argc,	char *filename, t_map *map)
 		return (ft_error("File does not exist."));
 	if (check_extension(filename) == 0)
 		return (ft_error("File not valid, should be a .ber file."));
-	load_map(map, fd);
+	if (load_map(map, fd) == 0)
+		return(ft_error("Something went wrong"));
 	close(fd);
 	if (check_rectangle(map) == (0))
 		return (ft_error("Map is not a rectangle."));

@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 20:26:14 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:28:08 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	}
 }
 
-void	load_map(t_map *m, int fd)
+int	load_map(t_map *m, int fd)
 {
 	char	*line;
 
@@ -101,11 +101,14 @@ void	load_map(t_map *m, int fd)
 		{
 			if (m->nb_lines == 0)
 				m->line_len = ft_strlen(line);
-			m->map = ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1);
+			m->map = NULL;//ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1);
+			if (m->map == NULL)
+				return (0);
 			m->map[m->nb_lines] = line;
 			m->nb_lines++;
 		}
 	}
+	return (1);
 }
 
 void	free_map(t_map m)
