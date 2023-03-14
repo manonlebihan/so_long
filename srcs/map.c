@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 20:22:30 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:24:42 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 		return (NULL);
 	}
 	else if (oldptr == NULL)
-		return (malloc(newlen * sizeof(char *)));
+	{
+		newptr = malloc(newlen * sizeof(char *));
+		return (newptr);
+	}
 	else if (newlen <= oldlen)
 		return (oldptr);
 	else
