@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/15 19:15:41 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/15 19:17:29 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRC_BONUS			= $(SRC_DIR)/$(BONUS_DIR)/main_bonus.c \
 						$(SRC_DIR)/$(BONUS_DIR)/display_bonus.c \
 						$(SRC_DIR)/$(BONUS_DIR)/textures_bonus.c \
 						$(SRC_DIR)/$(BONUS_DIR)/direction_bonus.c \
-						$(SRC_DIR)/$(BONUS_DIR)/assign_char_bonus.c
+						$(SRC_DIR)/$(BONUS_DIR)/assign_char_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/flood_fill_bonus.c
 OBJ_BONUS			= $(SRC_BONUS:$(SRC_DIR)/$(BONUS_DIR)/%.c=$(OBJ_DIR)/$(BONUS_DIR)/%.o)
 
 # --------------------------- Colors --------------------------- #
