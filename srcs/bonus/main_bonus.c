@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 18:07:10 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:04:51 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_map(int argc,	char *filename, t_map *map)
 
 	if (argc != 2)
 	{
-		ft_putendl_fd("Error\nNumber of arguments invalid : ./so_long [file.ber]", 2);
+		ft_putendl_fd("Error\nNumber of arguments invalid, should be one.", 2);
 		exit(EXIT_FAILURE);
 	}
 	fd = open(filename, O_RDONLY);
