@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 21:44:51 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 22:50:33 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,12 @@ int	duplicate_map(t_map m, t_map *dup)
 void	*ft_realloc_str(void *oldptr, int oldlen)
 {
 	void	*newptr;
-	int		newlen;
 
-	newlen = oldlen + 1;
+	newptr = malloc((oldlen + 1) * sizeof(char *));
 	if (oldptr == NULL)
-	{
-		newptr = malloc(newlen * sizeof(char *));
 		return (newptr);
-	}
 	else
 	{
-		newptr = malloc(newlen * sizeof(char *)); // => not ok
 		if (newptr != NULL)
 			ft_memcpy(newptr, oldptr, oldlen * sizeof(char *));
 		free(oldptr);
