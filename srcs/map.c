@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 17:27:24 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:22:03 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,8 @@ int	load_map(t_map *m, int fd)
 				m->map[m->nb_lines] = line;
 				m->nb_lines++;
 			}
-			else
-			{
-				printf("nb lines %d\n", m->nb_lines);
+			else if (m->map == NULL)
 				free(line);
-			}
 		}
 	}
 	return (1);
