@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 19:18:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:26:32 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	check_map(int argc,	char *filename, t_map *map)
 		return (ft_error("Map is not surronded by walls."));
 	if (check_flood_fill(*map) == 0)
 		return (ft_error("There is no possible path..."));
+	else if (check_flood_fill(*map) == -1)
+		return (ft_error("Something went wrong..."));
 	return (1);
 }
 
