@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:11:47 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 19:14:20 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:23:53 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_flood_fill(t_map map)
 	t_map	dup;
 
 	if (duplicate_map(map, &dup) == 0)
-		return (0);
+		return (-1);
 	dup.collectible_copy = 0;
 	dup.exit_copy = 0;
 	dup.player_x = map.player_x;
