@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 20:27:33 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:55:45 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ typedef struct s_img
 	void	*mlx_img;
 	int		width;
 	int		height;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
 }	t_img;
 
 typedef struct s_txt
