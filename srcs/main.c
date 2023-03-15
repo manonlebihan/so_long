@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 18:07:10 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:26:08 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_error(char *msg)
 
 int	flood_fill(t_map *m, int x, int y)
 {
-	if (m->map[y][x] != '1' && m->map[y][x] != 'B')
+	if (m->map[y][x] != '1')
 	{
 		if (m->map[y][x] == 'C')
 			m->collectible_copy++;
