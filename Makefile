@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/15 18:29:24 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/15 18:47:48 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 CC						= gcc
 CFLAGS					= -Wall -Wextra -Werror -I.
 NAME					= so_long
+NAME_BONUS				= so_long_bonus
 INCLUDES				= -I $(DIR_LIBFT) -I $(DIR_MLX) -I $(INC_DIR) -I $(DIR_LIBFT)/ft_printf -I \
 							$(DIR_LIBFT)/gnl -I $(DIR_LIBFT)/libft
 LIBS					= -L $(DIR_LIBFT) -lft -L $(DIR_MLX) -lmlx -lXext -lX11
@@ -31,6 +32,7 @@ MLX					= mlx/libmlx_Linux.a
 SRC_DIR				= srcs
 OBJ_DIR				= objs
 INC_DIR				= includes
+BONUS_DIR			= bonus
 
 # Sources and objects
 SRC					= $(SRC_DIR)/main.c \
@@ -41,7 +43,14 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/direction.c \
 						$(SRC_DIR)/assign_char.c
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-
+SRC_BONUS			= $(SRC_DIR)/$(BONUS_DIR)/main_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/map_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/check_map_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/display_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/textures_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/direction_bonus.c \
+						$(SRC_DIR)/$(BONUS_DIR)/assign_char_bonus.c
+OBJ_BONUS			= $(SRC_BONUS:$(SRC_DIR)/$(BONUS_DIR)/%.c=$(OBJ_DIR)/$(BONUS_DIR)/%.o)
 
 # --------------------------- Colors --------------------------- #
 
@@ -71,6 +80,16 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@echo "$(GREEN)so_long OK !$(NO_COLOR)\n"
 
 $(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(CC) $(INCLUDES) -o $@ -c $< $(CFLAGS) 
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_BONUS) $(LIBFT) $(MLX)
+	@echo "$(MAGENTA)Creating so_long_bonus...$(NO_COLOR)"	
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(INCLUDES) $(LIBS) -o $(NAME_BONUS)
+	@echo "$(GREEN)so_long_bonus OK !$(NO_COLOR)\n"
+
+$(OBJ_BONUS): $(OBJ_DIR)/$(BONUS_DIR)/%.o: $(SRC_DIR)/$(BONUS_DIR)/%.c
 	@$(CC) $(INCLUDES) -o $@ -c $< $(CFLAGS) 
 
 clean:
