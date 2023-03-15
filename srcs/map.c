@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 14:09:33 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:10:24 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	load_map(t_map *m, int fd)
 		{
 			if (m->nb_lines == 0)
 				m->line_len = ft_strlen(line);
-			m->map = NULL;//ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1); // => OK
+			m->map = ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1); // => OK
 			if (m->map != NULL)
 			{
 				m->map[m->nb_lines] = line;
