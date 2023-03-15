@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 14:10:24 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:27:24 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	duplicate_map(t_map m, t_map *dup)
 	i = 0;
 	dup->nb_lines = m.nb_lines;
 	dup->line_len = m.line_len;
-	dup->map = (char **)malloc(m.nb_lines * sizeof(char *)); // => OK
+	dup->map = (char **)malloc(m.nb_lines * sizeof(char *));
 	if (dup->map == NULL)
 		return (0);
 	while (i < m.nb_lines)
@@ -71,7 +71,7 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	}
 	else if (oldptr == NULL)
 	{
-		newptr = malloc(newlen * sizeof(char *)); // => OK
+		newptr = malloc(newlen * sizeof(char *));
 		return (newptr);
 	}
 	else if (newlen <= oldlen)
@@ -98,7 +98,7 @@ int	load_map(t_map *m, int fd)
 		{
 			if (m->nb_lines == 0)
 				m->line_len = ft_strlen(line);
-			m->map = ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1); // => OK
+			m->map = ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1);
 			if (m->map != NULL)
 			{
 				m->map[m->nb_lines] = line;
@@ -108,7 +108,6 @@ int	load_map(t_map *m, int fd)
 			{
 				printf("nb lines %d\n", m->nb_lines);
 				free(line);
-				//return (1);
 			}
 		}
 	}
@@ -118,8 +117,8 @@ int	load_map(t_map *m, int fd)
 void	free_map(t_map m)
 {
 	int	i;
+
 	i = 0;
-	printf("%p\n", m.map);
 	if (m.map != NULL)
 	{
 		while (i < m.nb_lines)
