@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/15 18:47:48 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/15 18:50:09 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,14 +94,14 @@ $(OBJ_BONUS): $(OBJ_DIR)/$(BONUS_DIR)/%.o: $(SRC_DIR)/$(BONUS_DIR)/%.c
 
 clean:
 	@echo "\n$(YELLOW)Cleaning objects !$(NO_COLOR)"
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJ_BONUS)
 	@make -C $(DIR_LIBFT) --no-print-directory clean
 	@make -C $(DIR_MLX) --no-print-directory clean
 	@echo "$(GREEN)Objects cleaned !$(NO_COLOR)\n"
 
 fclean: clean
 	@echo "$(YELLOW)Cleaning everything !$(NO_COLOR)"
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_BONUS)
 	@make -C $(DIR_LIBFT) --no-print-directory fclean
 	@echo "$(GREEN)Everything cleaned !$(NO_COLOR)\n"
 
