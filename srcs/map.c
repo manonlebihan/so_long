@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/14 20:52:56 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:09:33 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	}
 	else if (oldptr == NULL)
 	{
-		newptr = malloc(newlen * sizeof(char *)); // => not ok
-		if (newptr == NULL)
-			return (NULL);
+		newptr = malloc(newlen * sizeof(char *)); // => OK
 		return (newptr);
 	}
 	else if (newlen <= oldlen)
@@ -81,12 +79,8 @@ void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
 	else
 	{
 		newptr = malloc(newlen * sizeof(char *)); // => not ok
-		if (newptr == NULL)
-		{
-			free(oldptr);
-			return (NULL);
-		}
-		ft_memcpy(newptr, oldptr, oldlen * sizeof(char *));
+		if (newptr != NULL)
+			ft_memcpy(newptr, oldptr, oldlen * sizeof(char *));
 		free(oldptr);
 		return (newptr);
 	}
@@ -104,14 +98,18 @@ int	load_map(t_map *m, int fd)
 		{
 			if (m->nb_lines == 0)
 				m->line_len = ft_strlen(line);
-			m->map = ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1); // => not ok
-			if (m->map == NULL)
+			m->map = NULL;//ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1); // => OK
+			if (m->map != NULL)
 			{
-				free(line);
-				return (0);
+				m->map[m->nb_lines] = line;
+				m->nb_lines++;
 			}
-			m->map[m->nb_lines] = line;
-			m->nb_lines++;
+			else
+			{
+				printf("nb lines %d\n", m->nb_lines);
+				free(line);
+				//return (1);
+			}
 		}
 	}
 	return (1);
@@ -120,12 +118,16 @@ int	load_map(t_map *m, int fd)
 void	free_map(t_map m)
 {
 	int	i;
-
 	i = 0;
-	while (i < m.nb_lines)
+	printf("%p\n", m.map);
+	if (m.map != NULL)
 	{
-		free(m.map[i]);
-		i++;
+		while (i < m.nb_lines)
+		{
+			if (m.map[i] != NULL)
+				free(m.map[i]);
+			i++;
+		}
+		free(m.map);
 	}
-	free(m.map);
 }
