@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 18:55:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:15:05 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,9 @@ void	assign_char_down(t_solong *sl);
 void	assign_char_left(t_solong *sl);
 void	assign_char_right(t_solong *sl);
 void	assign_x_y(t_map *m, char c, int x, int y);
+
+/******************* ASSIGN CHAR FUNCTIONS *******************/
+int		check_flood_fill(t_map map);
+
 
 #endif

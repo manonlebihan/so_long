@@ -6,7 +6,7 @@
 #    By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 16:10:00 by mle-biha          #+#    #+#              #
-#    Updated: 2023/03/15 18:50:09 by mle-biha         ###   ########.fr        #
+#    Updated: 2023/03/15 19:15:41 by mle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SRC					= $(SRC_DIR)/main.c \
 						$(SRC_DIR)/display.c \
 						$(SRC_DIR)/textures.c \
 						$(SRC_DIR)/direction.c \
-						$(SRC_DIR)/assign_char.c
+						$(SRC_DIR)/assign_char.c \
+						$(SRC_DIR)/flood_fill.c
 OBJ					= $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 SRC_BONUS			= $(SRC_DIR)/$(BONUS_DIR)/main_bonus.c \
 						$(SRC_DIR)/$(BONUS_DIR)/map_bonus.c \
