@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 19:03:16 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:12:52 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_flood_fill(t_map map)
 	return (1);
 }
 
-int	check_map(int argc,	char *filename, t_map *map)
+int	first_check(int argc, char *filename, t_map *map)
 {
 	int		fd;
 
@@ -80,6 +80,13 @@ int	check_map(int argc,	char *filename, t_map *map)
 	}
 	close(fd);
 	if (map->map == NULL)
+		return (0);
+	return (1);
+}
+
+int	check_map(int argc,	char *filename, t_map *map)
+{
+	if (first_check(argc, filename, map) == 0)
 		return (0);
 	if (check_rectangle(map) == (0))
 		return (ft_error("Map is not a rectangle."));
