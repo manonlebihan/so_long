@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:23:09 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:56:01 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:58:38 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	first_check(int argc, char *filename, t_map *map)
 	load_map(map, fd);
 	close(fd);
 	if (map->map == NULL)
-		return (0);
+		return (ft_error("Something went wrong..."));
 	return (1);
 }
 
