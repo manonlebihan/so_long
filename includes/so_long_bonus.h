@@ -6,7 +6,7 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:05:59 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/15 19:17:48 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:43:19 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	free_map(t_map m);
 void	init_map(t_map *map);
 int		load_map(t_map *m, int fd);
 int		duplicate_map(t_map m, t_map *dup);
-void	*ft_realloc_str(void *oldptr, int oldlen, int newlen);
+void	*ft_realloc_str(void *oldptr, int oldlen);
 
 /******************* CHECK MAP FUNCTIONS *******************/
 int		check_chars(t_map *m);

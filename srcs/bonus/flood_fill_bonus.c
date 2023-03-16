@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:11:47 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:20:05 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:41:57 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	flood_fill(t_map *m, int x, int y)
 {

@@ -6,13 +6,13 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:19:33 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:19:34 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:41:42 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	assign_x_y(t_map *m, char c, int x, int y)
 {

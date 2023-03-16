@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:19:40 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:19:45 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:41:47 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	check_extension(char *filename)
 {

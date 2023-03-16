@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:35:32 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:19:59 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:41:54 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	free_mlx(t_mlx *mlx, t_map *map)
 {

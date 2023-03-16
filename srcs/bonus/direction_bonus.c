@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:19:49 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:19:53 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:41:50 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	move_up(t_solong *sl)
 {

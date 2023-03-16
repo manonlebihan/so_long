@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:28:03 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:20:14 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:42:37 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	init_map(t_map *map)
 {
@@ -60,25 +60,15 @@ int	duplicate_map(t_map m, t_map *dup)
 	return (1);
 }
 
-void	*ft_realloc_str(void *oldptr, int oldlen, int newlen)
+void	*ft_realloc_str(void *oldptr, int oldlen)
 {
 	void	*newptr;
 
-	if (newlen == 0)
-	{
-		free(oldptr);
-		return (NULL);
-	}
-	else if (oldptr == NULL)
-	{
-		newptr = malloc(newlen * sizeof(char *));
+	newptr = malloc((oldlen + 1) * sizeof(char *));
+	if (oldptr == NULL)
 		return (newptr);
-	}
-	else if (newlen <= oldlen)
-		return (oldptr);
 	else
 	{
-		newptr = malloc(newlen * sizeof(char *)); // => not ok
 		if (newptr != NULL)
 			ft_memcpy(newptr, oldptr, oldlen * sizeof(char *));
 		free(oldptr);
@@ -98,13 +88,13 @@ int	load_map(t_map *m, int fd)
 		{
 			if (m->nb_lines == 0)
 				m->line_len = ft_strlen(line);
-			m->map = ft_realloc_str(m->map, m->nb_lines, m->nb_lines + 1);
+			m->map = ft_realloc_str(m->map, m->nb_lines);
 			if (m->map != NULL)
 			{
 				m->map[m->nb_lines] = line;
 				m->nb_lines++;
 			}
-			else if (m->map == NULL)
+			else
 				free(line);
 		}
 	}

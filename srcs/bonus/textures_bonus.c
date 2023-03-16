@@ -6,11 +6,11 @@
 /*   By: mle-biha <mle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:26:40 by mle-biha          #+#    #+#             */
-/*   Updated: 2023/03/16 11:20:18 by mle-biha         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:42:08 by mle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	init_textures(t_mlx *mlx, t_img *txt, char *path)
 {
